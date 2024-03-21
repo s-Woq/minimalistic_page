@@ -27,21 +27,36 @@ function moveActiveNav(link) {
 // Cards handling
 const cards = document.querySelectorAll(".card");
 
+// cards.forEach((card) => {
+//     card.addEventListener("click", () => {
+//         // Remove active class from all cards
+//         cards.forEach((otherCard) => {
+//             otherCard.classList.remove("active");
+//         });
+        
+//         // Add active class to the clicked card
+//         card.classList.add("active");
+        
+//         // Add is-inactive class to all other cards
+//         cards.forEach((otherCard) => {
+//             if (otherCard !== card) {
+//                 otherCard.classList.add("is-inactive");
+//             }
+//         });
+// var cards = document.querySelectorAll(".card");
+
 cards.forEach((card) => {
     card.addEventListener("click", () => {
-        // Remove active class from all cards
         cards.forEach((otherCard) => {
             otherCard.classList.remove("active");
+            otherCard.classList.add("is-inactive");
         });
         
         // Add active class to the clicked card
         card.classList.add("active");
         
-        // Add is-inactive class to all other cards
-        cards.forEach((otherCard) => {
-            if (otherCard !== card) {
-                otherCard.classList.add("is-inactive");
-            }
-        });
+        // Remove is-inactive class from the clicked card
+        card.classList.remove("is-inactive");
     });
 });
+
